@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #fdf6f0;
+    overflow-x: hidden;
+  }
+  /* First Page */
+  .page1 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 20px;
+  }
+  .bismillah {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .ayah {
+    font-size: 1.8em;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+  .translation {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .envelope {
+    display: inline-block;
+    padding: 15px 25px;
+    background: #ffffffaa;
+    color: #1e3c72;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  .envelope:hover {
+    background: #1e3c72;
+    color: white;
+  }
+
+  /* Couple Names */
+  .couple-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    background: linear-gradient(to right, #0a3d62, #60a3bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 30px 0;
+  }
+
+  /* Other pages */
+  .page {
+    min-height: 100vh;
+    padding: 50px 20px;
+    background: #fdf6f0;
+    color: #333;
+  }
+  h2 {
+    color: #1e3c72;
+  }
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page1">
+  <div class="bismillah">Bismillahi Rahmanirrahim</div>
+  <div class="ayah">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا</div>
+  <div class="translation">“And of His signs is that He created for you from yourselves mates that you may find tranquility in them.”</div>
+  <div class="couple-names">Aisha & Ahmed</div>
+  <a href="#details" class="envelope">Tap Here for Details</a>
+</div>
+
+<!-- Page 2 -->
+<div id="details" class="page">
+  <h2>Wedding Details</h2>
+  <p><strong>Date:</strong> 15th June 2026</p>
+  <p><strong>Time:</strong> 7:00 PM</p>
+  <p><strong>Venue:</strong> Grand Ballroom, Hilton Hotel, Sharjah</p>
+  <p><strong>RSVP:</strong> By 1st June 2026</p>
+</div>
+
+<!-- Page 3 -->
+<div class="page">
+  <h2>Additional Information</h2>
+  <p>Please join us in celebrating our special day. Dress code is formal. Kindly confirm your attendance to help us plan accordingly. We look forward to seeing you there!</p>
+</div>
+
+</body>
+</html>
