@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Islamic Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: radial-gradient(circle at top, #0f3d2e, #021b13);
+    color: #e6c36a;
+    overflow-x: hidden;
+}
+
+/* STARS */
+.star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: gold;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0%,100% {opacity:0.2;}
+    50% {opacity:1;}
+}
+
+/* SECTIONS */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* GOLD TEXT */
+.gold {
+    color: #e6c36a;
+}
+
+/* ARABIC */
+.arabic {
+    font-size: 34px;
+    direction: rtl;
+    margin-bottom: 20px;
+}
+
+/* SMALL TEXT */
+.sub {
+    letter-spacing: 3px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* NAMES */
+.names {
+    font-size: 60px;
+    margin: 20px 0;
+}
+
+/* DATE BOX */
+.date-box {
+    border: 1px solid rgba(230,195,106,0.5);
+    padding: 20px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* DIVIDER */
+.divider {
+    margin: 20px;
+    letter-spacing: 10px;
+}
+
+/* SCROLL TEXT */
+.scroll {
+    margin-top: 40px;
+    opacity: 0.7;
+}
+
+/* ANIMATION FADE */
+.fade {
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<script>
+for(let i=0;i<60;i++){
+    let s=document.createElement("div");
+    s.className="star";
+    s.style.top=Math.random()*100+"vh";
+    s.style.left=Math.random()*100+"vw";
+    document.body.appendChild(s);
+}
+</script>
+
+<!-- SECTION 1 -->
+<div class="section fade">
+    <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+
+    <div class="sub">UNITED IN FAITH & LOVE</div>
+
+    <p class="sub" style="max-width:600px;margin:auto;margin-top:15px;">
+    With the blessings of Allah, we invite you to celebrate the sacred union
+    </p>
+
+    <div class="names">Maaz Ahmed</div>
+
+    <div class="divider">✧ ✧ ✧</div>
+
+    <div class="names">Qamrunnisa</div>
+
+    <div class="date-box">
+        <div>25 April 2026</div>
+        <div style="font-size:12px;margin-top:5px;">Saturday • 11:45 AM</div>
+    </div>
+
+    <div class="scroll">Scroll to discover ↓</div>
+</div>
+
+<!-- AYAH SECTION -->
+<div class="section fade">
+    <div class="arabic">
+    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+    لِتَسْكُنُوا إِلَيْهَا
+    </div>
+
+    <p style="max-width:600px;margin:auto;line-height:1.8;">
+    “And among His signs is that He created for you mates from among yourselves
+    that you may find tranquility in them; and He placed between you love and mercy.”
+    </p>
+
+    <div class="sub" style="margin-top:20px;">
+    — Surah Ar-Rum 30:21
+    </div>
+</div>
+
+<!-- WALIMA -->
+<div class="section fade">
+    <h2>Walima Reception</h2>
+
+    <div class="date-box">
+        <div>26 April 2026</div>
+        <div style="font-size:12px;margin-top:5px;">Sunday • 01:00 PM</div>
+    </div>
+
+    <p>
+    Ameena Palace <br>
+    N.H. 66, Bhatkal
+    </p>
+</div>
+
+</body>
+</html>
