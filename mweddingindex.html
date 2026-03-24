@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: #0b1c2c;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Cover */
+.cover {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');
+    background-size: cover;
+}
+
+.cover h1 {
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: 1px solid gold;
+    color: gold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: gold;
+    color: black;
+}
+
+/* General */
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.arabic {
+    font-size: 30px;
+    direction: rtl;
+}
+
+.names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    color: gold;
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background: gold;
+    margin: 15px auto;
+}
+
+.details {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- COVER PAGE -->
+<section class="section cover">
+    <h1>Wedding Invitation</h1>
+    <p>Tap below to open</p>
+    <a href="#bismillah" class="btn">Open</a>
+</section>
+
+<!-- BISMILLAH -->
+<section id="bismillah" class="section">
+    <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+    <p>In the name of Allah, the Most Beneficent, the Most Merciful</p>
+
+    <br>
+
+    <p>
+    “And We created you in pairs” (Qur'an 78:8)
+    </p>
+</section>
+
+<!-- NAMES -->
+<section class="section">
+    <h2>Together with their families</h2>
+
+    <div class="names">Maaz Ahmed</div>
+    <div class="divider"></div>
+    <div class="names">Qamrunnisa</div>
+
+    <p>Invite you to celebrate their Nikah</p>
+</section>
+
+<!-- NIKAH -->
+<section class="section">
+    <h2>Mehfil-e-Nikah</h2>
+
+    <div class="details">
+        <strong>25 April 2026</strong><br>
+        Saturday | 11:45 AM <br><br>
+
+        Sukoon Hall <br>
+        Shamshuddin Road, Bhatkal
+    </div>
+</section>
+
+<!-- WALIMA -->
+<section class="section">
+    <h2>Mehfil-e-Walima</h2>
+
+    <div class="details">
+        <strong>26 April 2026</strong><br>
+        Sunday | 01:00 PM <br><br>
+
+        Ameena Palace <br>
+        N.H. 66, Bhatkal
+    </div>
+</section>
+
+</body>
+</html>
