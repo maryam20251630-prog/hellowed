@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaz & Qamrunnisa | Wedding Invitation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --royal-dark: #001529;
+            --royal-blue: #003366;
+            --light-blue: #00509d;
+            --gold-primary: #d4af37;
+            --gold-glow: #f9e29d;
+            --text-white: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--royal-dark) 0%, var(--royal-blue) 50%, var(--royal-dark) 100%);
+            color: var(--text-white);
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Background Particles Canvas --- */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- Global Styles --- */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gold-text {
+            color: var(--gold-primary);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .divider {
+            width: 250px;
+            height: 40px;
+            background: url('https://img.icons8.com/ios/100/d4af37/ornament.png') no-repeat center;
+            background-size: contain;
+            margin: 20px auto;
+            filter: drop-shadow(0 0 5px var(--gold-primary));
+        }
+
+        /* --- Section 1: Cover --- */
+        #cover {
+            background: radial-gradient(circle at center, rgba(0, 80, 157, 0.3) 0%, transparent 70%);
+        }
+
+        .bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            line-height: 1.1;
+            margin: 20px 0;
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 2px rgba(255,215,0,0.4)); }
+            to { filter: drop-shadow(0 0 15px rgba(255,215,0,0.8)); }
+        }
+
+        .date-box {
+            border: 1px solid var(--gold-primary);
+            padding: 20px 40px;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5), inset 0 0 15px rgba(212,175,55,0.2);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* --- Section 2: Ayah --- */
+        .ayah-container {
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 50% 50% 0 0;
+            border-top: 1px solid var(--gold-primary);
+        }
+
+        .ayah-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--gold-glow);
+        }
+
+        .ayah-translation {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #d1d1d1;
+        }
+
+        /* --- Event Cards (Nikah & Walima) --- */
+        .event-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .event-card:hover {
+            transform: scale(1.02);
+            border-color: var(--gold-primary);
+        }
+
+        .event-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .event-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .event-details {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .venue-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 25px;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .venue-btn:hover {
+            background: var(--gold-primary);
+            color: var(--royal-dark);
+        }
+
+        .dua {
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--gold-glow);
+            font-size: 1rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .names { font-size: 3.5rem; }
+            .ayah-arabic { font-size: 1.6rem; }
+            .event-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <section id="cover" class="visible">
+        <div class="bismillah gold-text">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+        <p style="font-size: 0.8rem; opacity: 0.8;">In the name of Allah, the Most Gracious, the Most Merciful</p>
+        
+        <div class="divider"></div>
+        
+        <p class="subtitle gold-text">United in Faith & Love</p>
+        <p style="margin-bottom: 10px;">With the blessings of Allah, we joyfully invite you to celebrate the marriage of</p>
+        
+        <h1 class="names">Maaz Ahmed <br>&<br> Qamrunnisa</h1>
+        
+        <div class="date-box">
+            <h3 style="letter-spacing: 5px;">25 APRIL 2026</h3>
+            <p style="margin-top: 5px; opacity: 0.9;">SATURDAY | 11:45 AM</p>
+        </div>
+
+        <div class="scroll-indicator">
+            <p style="font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 5px;">SCROLL</p>
+            <i class="fa-solid fa-chevron-down gold-text"></i>
+        </div>
+    </section>
+
+    <section id="ayah">
+        <div class="ayah-container">
+            <div class="ayah-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا</div>
+            <p class="ayah-translation">
+                "And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy."
+            </p>
+            <p class="gold-text" style="margin-top: 15px;">— Surah Ar-Rum 30:21</p>
+        </div>
+        <div class="divider"></div>
+    </section>
+
+    <section id="nikah">
+        <div class="event-card">
+            <h2 class="event-title gold-text">Mehfil-e-Nikah</h2>
+            <div class="event-details">
+                <p><i class="fa-regular fa-calendar-check gold-text"></i> &nbsp; Saturday, 25 April 2026</p>
+                <p><i class="fa-regular fa-clock gold-text"></i> &nbsp; 11:45 AM</p>
+                <br>
+                <p><strong>SUKOON HALL</strong></p>
+                <p>Shamshuddin Road, Nawayaath Colony</p>
+                <p>Bhatkal</p>
+                
+                <a href="#" class="venue-btn">Get Directions</a>
+                
+                <p class="dua">
+                    “May Allah bless this union with love, barakah and happiness. Ameen.”
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="walima">
+        <div class="event-card">
+            <h2 class="event-title gold-text">Mehfil-e-Walima</h2>
+            <div class="event-details">
+                <p><i class="fa-regular fa-calendar-check gold-text"></i> &nbsp; Sunday, 26 April 2026</p>
+                <p><i class="fa-regular fa-clock gold-text"></i> &nbsp; 01:00 PM</p>
+                <br>
+                <p><strong>AMEENA PALACE</strong></p>
+                <p>N.H. 66</p>
+                <p>Bhatkal</p>
+                
+                <a href="#" class="venue-btn">Get Directions</a>
+            </div>
+        </div>
+        
+        <div class="divider" style="margin-top: 50px;"></div>
+        <p class="gold-text" style="font-family: 'Cinzel'; letter-spacing: 3px;">Shukran</p>
+    </section>
+
+    <script>
+        // --- Particle Background Logic ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.init();
+            }
+            init() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = Math.random() * 0.5 + 0.1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.y -= this.speedY;
+                if (this.y < 0) this.init();
+            }
+            draw() {
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // --- Scroll Reveal Logic ---
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
