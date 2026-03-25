@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Maaz & Qamrunnisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #4a0404;
+            --gold: #d4af37;
+            --light-gold: #f9e29c;
+            --white: #fffdf5;
+            --shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--maroon);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Background & Particles --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 2;
+        }
+
+        /* --- Reusable Components --- */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .calligraphy {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold);
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .serif {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 200px;
+            height: 50px;
+            background-image: url('https://img.icons8.com/ios/100/d4af37/ornament.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 20px auto;
+            filter: drop-shadow(0 0 5px var(--gold));
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(74, 4, 4, 0.8), rgba(74, 4, 4, 0.8)), 
+                        url('https://www.transparenttextures.com/patterns/dark-matter.png');
+        }
+
+        .bismillah {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .names h1 {
+            font-size: 4.5rem;
+            font-family: 'Great Vibes', cursive;
+            color: var(--light-gold);
+            margin: 20px 0;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--maroon), 0 0 20px var(--gold); }
+            to { text-shadow: 0 0 20px var(--maroon), 0 0 30px var(--light-gold); }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 30px;
+            display: inline-block;
+        }
+
+        /* --- Cards Style --- */
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+        }
+
+        .date-box {
+            font-size: 1.5rem;
+            color: var(--light-gold);
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .venue-name {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-top: 15px;
+        }
+
+        /* --- Quran Verse Section --- */
+        .quran-verse {
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.2);
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .arabic {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--light-gold);
+        }
+
+        /* --- Scroll Indicator --- */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-10px) translateX(-50%);}
+            60% {transform: translateY(-5px) translateX(-50%);}
+        }
+
+        /* --- Mosque Silhouette --- */
+        .mosque-bg {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://cdn-icons-png.flaticon.com/512/2400/2400810.png') repeat-x center bottom;
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .names h1 { font-size: 3rem; }
+            .calligraphy { font-size: 2.5rem; }
+            .event-card { padding: 20px; }
+            .arabic { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+    <div class="bg-overlay"></div>
+    <div class="mosque-bg"></div>
+
+    <section class="section hero visible">
+        <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+        <p class="serif">In the Name of Allah</p>
+        
+        <div class="names">
+            <h1>Maaz & Qamrunnisa</h1>
+        </div>
+        
+        <p class="tagline serif">Bound by Faith, Blessed with Love</p>
+        
+        <div class="divider"></div>
+        
+        <p style="max-width: 600px; line-height: 1.6;">
+            "With the blessings of Allah, we cordially invite you to grace this joyous occasion and witness the sacred union of two hearts in Nikah."
+        </p>
+
+        <div class="scroll-down serif">SCROLL<br>▼</div>
+    </section>
+
+    <section class="section">
+        <div class="quran-verse">
+            <p class="arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا</p>
+            <p>"And among His signs is that He created for you mates from among yourselves that you may find tranquility in them; and He placed between you love and mercy."</p>
+            <p class="serif" style="margin-top: 15px; font-size: 0.8rem;">— Surah Ar-Rum 30:21 —</p>
+        </div>
+        <div class="divider"></div>
+    </section>
+
+    <section class="section">
+        <h2 class="calligraphy">Mehfil-e-Nikah</h2>
+        <div class="event-card">
+            <p class="serif">Saturday</p>
+            <div class="date-box serif">25 APRIL 2026</div>
+            <p class="serif" style="color: var(--gold);">AT 11:45 AM</p>
+            
+            <div class="divider" style="height: 30px;"></div>
+            
+            <h3 class="venue-name">Sukoon Hall</h3>
+            <p>Shamshuddin Road, Nawayaath Colony, Bhatkal</p>
+            
+            <a href="https://maps.google.com" target="_blank" style="display:inline-block; margin-top: 20px; color: var(--light-gold); text-decoration: none; border: 1px solid var(--gold); padding: 5px 15px; font-size: 0.8rem;">VIEW ON MAP</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="calligraphy">Mehfil-e-Walima</h2>
+        <div class="event-card">
+            <p class="serif">Sunday</p>
+            <div class="date-box serif">26 APRIL 2026</div>
+            <p class="serif" style="color: var(--gold);">AT 01:00 PM</p>
+            
+            <div class="divider" style="height: 30px;"></div>
+            
+            <h3 class="venue-name">Ameena Palace</h3>
+            <p>N.H. 66, Bhatkal</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="divider"></div>
+        <h2 class="calligraphy" style="font-size: 2.5rem;">Dua for the Couple</h2>
+        <p style="font-size: 1.2rem; max-width: 500px; line-height: 1.8; font-style: italic;">
+            "May Allah bless this union with love, barakah, and happiness. Ameen."
+        </p>
+        <div class="divider"></div>
+        <p class="serif" style="font-size: 0.7rem; margin-top: 50px; opacity: 0.6;">Maaz & Qamrunnisa • 2026</p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle.js Configuration for Glow/Sparkles
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#d4af37" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 3, "random": true, "anim": { "enable": false } },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 1, "direction": "top", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false } } },
+            "retina_detect": true
+        });
+
+        // Scroll Observer for Animations
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
