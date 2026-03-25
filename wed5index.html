@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maaz ❤️ Qamrunnisa Wedding</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Playfair Display', serif;
+background:linear-gradient(180deg,#3b0a0a,#1a0000);
+color:#fff;
+overflow-x:hidden;
+}
+
+/* PARTICLES */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* SECTIONS */
+.section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+}
+
+/* GOLD TEXT */
+.gold{
+color:#d4af37;
+text-shadow:0 0 10px rgba(212,175,55,0.7);
+}
+
+/* HEADINGS */
+h1{
+font-family:'Great Vibes', cursive;
+font-size:60px;
+color:#d4af37;
+text-shadow:0 0 20px gold;
+}
+
+h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+/* DIVIDER */
+.divider{
+width:150px;
+height:2px;
+background:gold;
+margin:20px auto;
+box-shadow:0 0 10px gold;
+}
+
+/* SCROLL INDICATOR */
+.scroll-down{
+position:absolute;
+bottom:20px;
+font-size:14px;
+opacity:0.7;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:0.2;}
+50%{opacity:1;}
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(212,175,55,0.3);
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(212,175,55,0.2);
+margin:20px;
+width:90%;
+max-width:600px;
+}
+
+/* ANIMATION */
+.fade-in{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.fade-in.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+h1{font-size:40px;}
+h2{font-size:24px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- SECTION 1 -->
+<section class="section fade-in">
+<p class="gold">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</p>
+
+<div class="divider"></div>
+
+<h1>Maaz Ahmed</h1>
+<h2 class="gold">&</h2>
+<h1>Qamrunnisa</h1>
+
+<div class="divider"></div>
+
+<p class="gold">"Bound by Faith, Blessed with Love"</p>
+
+<p style="margin-top:20px;max-width:600px;">
+With the blessings of Allah, we cordially invite you to grace this joyous occasion and witness the sacred union of two hearts in Nikah.
+</p>
+
+<div class="scroll-down">Scroll ↓</div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section fade-in">
+<p class="gold">
+وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا
+</p>
+
+<div class="divider"></div>
+
+<p style="max-width:600px;">
+"And among His signs is that He created for you mates from among yourselves that you may find tranquility in them; and He placed between you love and mercy."
+</p>
+
+<p class="gold">Surah Ar-Rum 30:21</p>
+</section>
+
+<!-- SECTION 3 NIKAH -->
+<section class="section fade-in">
+<div class="card">
+<h2 class="gold">Mehfil-e-Nikah</h2>
+
+<div class="divider"></div>
+
+<p><strong>Date:</strong> 25 April 2026</p>
+<p><strong>Day:</strong> Saturday</p>
+<p><strong>Time:</strong> 11:45 AM</p>
+
+<div class="divider"></div>
+
+<p><strong>Venue:</strong> Sukoon Hall</p>
+<p>Shamshuddin Road, Nawayaath Colony, Bhatkal</p>
+</div>
+</section>
+
+<!-- SECTION 4 WALIMA -->
+<section class="section fade-in">
+<div class="card">
+<h2 class="gold">Mehfil-e-Walima</h2>
+
+<div class="divider"></div>
+
+<p><strong>Date:</strong> 26 April 2026</p>
+<p><strong>Day:</strong> Sunday</p>
+<p><strong>Time:</strong> 01:00 PM</p>
+
+<div class="divider"></div>
+
+<p><strong>Venue:</strong> Ameena Palace</p>
+<p>N.H. 66, Bhatkal</p>
+</div>
+</section>
+
+<!-- SECTION 5 DUA -->
+<section class="section fade-in">
+<p class="gold">
+"May Allah bless this union with love, barakah, and happiness. Ameen."
+</p>
+</section>
+
+<script>
+// SCROLL ANIMATION
+const faders = document.querySelectorAll('.fade-in');
+
+window.addEventListener('scroll', () => {
+faders.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add('show');
+}
+});
+});
+
+// PARTICLES
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(212,175,55,0.6)";
+ctx.beginPath();
+
+for(let i=0;i<particles.length;i++){
+let p = particles[i];
+ctx.moveTo(p.x,p.y);
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+}
+ctx.fill();
+update();
+}
+
+function update(){
+for(let i=0;i<particles.length;i++){
+let p = particles[i];
+p.y += p.d;
+if(p.y > canvas.height){
+p.y = 0;
+}
+}
+}
+
+setInterval(draw,33);
+
+</script>
+
+</body>
+</html>
